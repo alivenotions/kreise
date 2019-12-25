@@ -1,6 +1,6 @@
 const topLayer = document.getElementsByClassName('top')[0]
-const topLayerContent = document.querySelector('.top p')
+const topLayerContent = document.querySelector('.top div')
 function transitionTopLayer () {
   topLayer.style = 'transform: translateY(-100%)'
-  topLayerContent.style = 'transform: translateY(2500%)'
+  topLayerContent.style = 'transform: translateY(150%)'
 }
