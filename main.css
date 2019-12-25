@@ -1,0 +1,47 @@
+html, body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+
+.top {
+  background-color: #000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  transition: transform 0.5s ease;
+  overflow: hidden;
+}
+
+.top p {
+  color: #00ffff;
+  position: absolute;
+  top: 50%;
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: sans-serif;
+  margin: 5px;
+  transition: transform 0.5s ease;
+}
+
+.top button {
+  border: 1px solid #fff;
+  background: inherit;
+  color: #fff;
+  padding: 6px;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+
+.top button:hover {
+  color: #00ffff;
+  border: 1px solid #00ffff;
+}
