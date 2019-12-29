@@ -5,7 +5,7 @@ html, body {
   width: 100%;
 }
 
-.top {
+.content--first {
   background-color: #0c0c0c;
   position: absolute;
   top: 0;
@@ -21,7 +21,7 @@ html, body {
   overflow: hidden;
 }
 
-.top > div {
+.content__reverse {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -31,7 +31,7 @@ html, body {
   align-items: center;
 }
 
-.top > div p {
+.content__reverse p {
   position: absolute;
   top: 30px;
   right: -45px;
@@ -43,27 +43,26 @@ html, body {
   transition: all 1.1s cubic-bezier(0.7, 0.9, 0.7, 0.8);
 }
 
-.top > div > div {
+.content__reverse > div {
   overflow: hidden;
   height: 70vh;
   box-shadow: 3px 3px pink;
 }
 
-.top img {
+.content__reverse img {
   height: 100%;
   transition: all 1.1s cubic-bezier(0.7, 0.9, 0.7, 0.8);
 }
 
-.top img:hover {
+.content__reverse img:hover {
   scale: 1.05;
-  transform: rotate(-1deg);
 }
 
-.top > div > div:hover + p {
+.content__reverse > div:hover + p {
   transform: translate(5px, 5px);
 }
 
-.top button {
+.content__reverse button {
   border: none;
   border-bottom: 2px solid #fff;
   background: inherit;
@@ -80,7 +79,7 @@ html, body {
   text-shadow: 1px 1px #f0f8ff;
 }
 
-.top button:hover {
+.content__reverse button:hover {
   color: #a0ff00;
   border-bottom: 2px solid #a0ff00;
 }
