@@ -45,17 +45,17 @@
     // let otherletters = firstPageContent.titleLetters.filter(el => letters.indexOf(el) < 0);
 
     // Second page's content.
-    // const secondPageContent = {
-    //     reelImages: content.second.querySelectorAll('.reel > .reel__img')
-    // };
+    const secondPageContent = {
+        reelImages: content.second.querySelectorAll('.reel > .reel__img')
+    };
 
     // Third page's content.
-    // const thirdPageContent = {
-    //     backCtrl: content.third.querySelector('.content__back'),
-    //     text: content.third.querySelector('.content__text'),
-    //     selectElems: content.third.querySelectorAll('.select > *'),
-    //     reelNumbers: content.third.querySelectorAll('.reel > .reel__number')
-    // };
+    const thirdPageContent = {
+        backCtrl: content.third.querySelector('.content__back'),
+        text: content.third.querySelector('.content__text'),
+        selectElems: content.third.querySelectorAll('.select > *'),
+        reelNumbers: content.third.querySelectorAll('.reel > .reel__number')
+    };
 
     // Revealer element (first page)
     const revealer = new Revealer(content.first, {angle: -16});
@@ -104,38 +104,38 @@
         }, 0)
 
         // Animate second page elements (optional)
-        // .set(secondPageContent.reelImages, {y: 200}, 0)
-        // .staggerTo(secondPageContent.reelImages, duration*.7, {
-        //     ease: Expo.easeOut,
-        //     y: 0
-        // }, 0.02, 0.5)
+        .set(secondPageContent.reelImages, {y: 200}, 0)
+        .staggerTo(secondPageContent.reelImages, duration*.7, {
+            ease: Expo.easeOut,
+            y: 0
+        }, 0.02, 0.5)
 
-        // .set([thirdPageContent.selectElems, thirdPageContent.text, thirdPageContent.reelNumbers], {opacity: 0}, thirdPageTime)
+        .set([thirdPageContent.selectElems, thirdPageContent.text, thirdPageContent.reelNumbers], {opacity: 0}, thirdPageTime)
         // Animate overlay
-        // .to(overlay.DOM.inner, duration*1.3, {
-        //     ease: ease,
-        //     y: '-100%'
-        // }, thirdPageTime)
-        //
-        // // Animate third page elements (optional)
-        // .to(thirdPageContent.text, duration*0.5, {
-        //     ease: Cubic.easeOut,
-        //     startAt: {y: 80},
-        //     opacity: 1,
-        //     y: 0
-        // }, thirdPageTime+0.6)
-        // .staggerTo(thirdPageContent.selectElems, duration*0.5, {
-        //     ease: Cubic.easeOut,
-        //     startAt: {y: 50},
-        //     opacity: 1,
-        //     y: 0
-        // }, 0.03, thirdPageTime+0.6)
-        // .staggerTo(thirdPageContent.reelNumbers, duration*0.5, {
-        //     ease: Expo.easeOut,
-        //     startAt: {scale: 0},
-        //     scale: 1,
-        //     opacity: 1
-        // }, 0.05, thirdPageTime+0.9);
+        .to(overlay.DOM.inner, duration*1.3, {
+            ease: ease,
+            y: '-100%'
+        }, thirdPageTime)
+
+        // Animate third page elements (optional)
+        .to(thirdPageContent.text, duration*0.5, {
+            ease: Cubic.easeOut,
+            startAt: {y: 80},
+            opacity: 1,
+            y: 0
+        }, thirdPageTime+0.6)
+        .staggerTo(thirdPageContent.selectElems, duration*0.5, {
+            ease: Cubic.easeOut,
+            startAt: {y: 50},
+            opacity: 1,
+            y: 0
+        }, 0.03, thirdPageTime+0.6)
+        .staggerTo(thirdPageContent.reelNumbers, duration*0.5, {
+            ease: Expo.easeOut,
+            startAt: {scale: 0},
+            scale: 1,
+            opacity: 1
+        }, 0.05, thirdPageTime+0.9);
     };
     firstPageContent.enter.addEventListener('click', showNextPage);
 
@@ -145,5 +145,5 @@
         content.first.classList.remove('content--hidden');
         this.pageToggleTimeline.reverse();
     };
-    // thirdPageContent.backCtrl.addEventListener('click', showIntro);
+    thirdPageContent.backCtrl.addEventListener('click', showIntro);
 }
