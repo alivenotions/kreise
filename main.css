@@ -12,6 +12,7 @@
 html, body {
 	height: 100%;
   margin: 0;
+  overflow: hidden;
 }
 
 body {
@@ -47,6 +48,8 @@ main {
 	grid-template-columns: 100%;
 	grid-template-rows: 100%;
 	align-items: center;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .loading::before {
@@ -66,7 +69,7 @@ main {
 	z-index: 100000;
 	top: 50%;
 	left: 50%;
-	width: 300px;
+	width: 250px;
 	height: 30px;
 	margin: -15px 0 0 -15px;
 	pointer-events: none;
@@ -130,6 +133,10 @@ a:focus {
 	pointer-events: auto;
 }
 
+.content--third .reel {
+  margin-top: 80px;
+}
+
 .content__reverse {
 	width: 100%;
 	height: 100%;
@@ -154,13 +161,12 @@ a:focus {
 .intro__img {
 	background-position: 50% 0%;
 	background-size: cover;
-	width: 320px;
-	height: 100%;
+	width: 220px;
+	height: 80%;
 	max-height: 600px;
 	grid-row: 2 / span 2;
 	grid-column: 1;
 	position: relative;
-	will-change: transform;
 }
 
 .intro__title {
@@ -169,19 +175,13 @@ a:focus {
 	grid-column: 1;
 	font-family: Manrope, sans-serif;
 	font-weight: 700;
-	font-size: 128px;
+	font-size: 64px;
 	transform: translate(30%, -50%);
 	line-height: 1;
 	margin: 0;
 	color: var(--color-intro-title);
 	text-shadow: 1px 1px var(--color-link-shadow);
 	cursor: default;
-}
-
-.intro__title span {
-	will-change: transform;
-	display: inline-block;
-	white-space: pre;
 }
 
 .intro__enter {
@@ -193,7 +193,6 @@ a:focus {
 	text-shadow: 1px 1px var(--color-link-shadow);
 	transform: translateX(-40px);
 	font-size: 1.4rem;
-	will-change: transform;
 }
 
 .intro__enter::after {
@@ -218,12 +217,11 @@ a:focus {
 .content--grid {
 	padding: 2rem;
 	grid-template-columns: 50% 50%;
-	grid-template-rows: 40px auto auto auto auto;
-	grid-template-areas: 	'back social'
+	grid-template-rows: 40px auto auto auto;
+	grid-template-areas: 	'back ...'
 							'title title'
-							'text text'
-							'select select'
-							'reel reel';
+							'reel reel'
+							'select select';
 }
 
 .content__back {
@@ -265,12 +263,6 @@ a:focus {
 	left: 0;
 }
 
-.content__text {
-	hyphens: auto;
-	grid-area: text;
-	color: var(--color-content-text);
-}
-
 .reel {
 	grid-area: reel;
 	align-self: start;
@@ -284,12 +276,11 @@ a:focus {
 	float: left;
 }
 
-.reel__number {
-	width: 40px;
-	height: 300px;
+.reel__text {
+	height: 350px;
 	display: block;
-	margin: 0 0 1.5rem auto;
-	font-size: 2.75rem;
+	margin: 0 0 1.5rem 205px;
+	font-size: 2rem;
 	font-family: Manrope, sans-serif;
 	font-weight: 700;
 	line-height: 1;
@@ -297,8 +288,14 @@ a:focus {
 	color: var(--color-reel-number);
 }
 
-.reel__img + .reel__number {
+.reel__text:nth-of-type(2n + 1) {
+  margin: 0 0 1.5rem 175px;
+  mix-blend-mode: overlay;
+}
+
+.reel__img + .reel__text {
 	float: right;
+  color: red;
 }
 
 .select {
@@ -356,35 +353,35 @@ a:focus {
 }
 
 @media screen and (min-width: 53em) {
-	main {
-		overflow: hidden;
-	}
 	.content--first {
 		position: relative;
 	}
+  .content--third .reel {
+    margin-top: 0;
+  }
 	.content--grid {
-		padding: 3rem 3rem 2rem;
-		grid-template-columns: 50% 250px auto;
+		padding: 3rem 3rem;
+		grid-template-columns: 50% auto;
 		grid-column-gap: 1rem;
 		grid-template-rows: repeat(4,25%);
-		grid-template-areas: 	'back ... ...'
-								'title reel ...'
-								'text reel ...'
-                '... reel select';
+		grid-template-areas: 	'back ...'
+								'title reel'
+								'... reel'
+                'select reel';
 	}
 	.content__title {
 		font-size: 4.5rem;
 		margin: 0 0 4rem 0;
 		padding: 0 0 2rem 0;
 	}
-	.content__text {
-		max-width: 250px;
-	}
 	.reel {
 		margin: 0 0 -8rem 0;
 	}
+  .reel__text {
+	  width: 225px;
+  }
 	.select {
-		text-align: right;
+		text-align: left;
 		margin-top: auto;
 		align-self: end;
 	}
@@ -395,4 +392,11 @@ a:focus {
 		display: block;
 		margin: 0;
 	}
+  .intro__img {
+    width: 320px;
+    height: 100%;
+  }
+  .intro__title {
+    font-size: 128px;
+  }
 }

@@ -42,9 +42,8 @@
 
   const thirdPageContent = {
     backCtrl: content.third.querySelector('.content__back'),
-    text: content.third.querySelector('.content__text'),
     selectElems: content.third.querySelectorAll('.select > *'),
-    reelNumbers: content.third.querySelectorAll('.reel > .reel__number'),
+    reelTexts: content.third.querySelectorAll('.reel > .reel__text'),
   }
 
   const revealer = Reveal(content.first, { angle: -7 })
@@ -106,7 +105,7 @@
         secondPageContent.reelImages,
         duration * 0.7,
         {
-          ease: Expo.easeOut,
+          ease: 'expo.out',
           y: 0,
         },
         0.02,
@@ -116,8 +115,7 @@
       .set(
         [
           thirdPageContent.selectElems,
-          thirdPageContent.text,
-          thirdPageContent.reelNumbers,
+          thirdPageContent.reelTexts,
         ],
         { opacity: 0 },
         thirdPageTime
@@ -132,22 +130,11 @@
         thirdPageTime
       )
 
-      .to(
-        thirdPageContent.text,
-        duration * 0.5,
-        {
-          ease: Cubic.easeOut,
-          startAt: { y: 80 },
-          opacity: 1,
-          y: 0,
-        },
-        thirdPageTime + 0.6
-      )
       .staggerTo(
         thirdPageContent.selectElems,
         duration * 0.5,
         {
-          ease: Cubic.easeOut,
+          ease: 'power3.out',
           startAt: { y: 50 },
           opacity: 1,
           y: 0,
@@ -156,10 +143,10 @@
         thirdPageTime + 0.6
       )
       .staggerTo(
-        thirdPageContent.reelNumbers,
+        thirdPageContent.reelTexts,
         duration * 0.5,
         {
-          ease: Expo.easeOut,
+          ease: 'expo.out',
           startAt: { scale: 0 },
           scale: 1,
           opacity: 1,
@@ -167,6 +154,9 @@
         0.05,
         thirdPageTime + 0.9
       )
+      .set(content.second, { zIndex: '-1' }, thirdPageTime + 0.9)
+      .set(document.querySelector('main'), { overflowY: 'auto' }, 0)
+    document.body.style.overflow = 'auto'
   }
   firstPageContent.enter.addEventListener('click', showNextPage)
 
