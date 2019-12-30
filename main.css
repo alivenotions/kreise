@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Manrope";
-  src: url("./fonts/bold.woff2") format("woff2"),
+	src: url("./fonts/bold.woff2") format("woff2"),
+		   url("./fonts/semibold.woff2") format("woff2"),
        url("./fonts/regular.woff2") format("woff2");
 }
 
@@ -14,13 +15,13 @@ html, body {
 }
 
 body {
-	--color-text: #2e2e2e;
-	--color-text-frame: #fff;
-	--color-bg: #fff;
+	--color-text: #222;
+	--color-bg: #f7eaf3;
 	--color-link: #555;
 	--color-link-hover: #fff;
 	--color-intro-bg: #0e0e0e;
-	--color-intro-title: #fff;
+	--color-intro-title: #00ff88;
+	--color-link-shadow: #f0f8ff;
 	--color-enter: #fff;
 	--color-content-title: #111;
 	--color-content-text: #868181;
@@ -28,12 +29,10 @@ body {
 	--color-select-item: #868181;
 	--color-select-item-hover: #000;
 	--color-select-current: #111;
-	--color-social: #555;
-	--color-social-hover: #000;
 	--color-reel-number: #111;
 	--color-menu-link: #101010;
 	--color-menu-link-hover: #000;
-	--color-overlay: #ac8b79;
+	--color-overlay: #368a63;
 	color: var(--color-text);
 	background-color: var(--color-bg);
 	font-family: Manrope, sans-serif;
@@ -50,7 +49,6 @@ main {
 	align-items: center;
 }
 
-/* Page Loader */
 .loading::before {
 	content: '';
 	position: fixed;
@@ -173,10 +171,12 @@ a:focus {
 	grid-column: 1;
 	font-family: Manrope, sans-serif;
 	font-weight: 700;
-	font-size: 8vw;
+	font-size: 128px;
+	transform: translate(30%, -50%);
 	line-height: 1;
 	margin: 0;
 	color: var(--color-intro-title);
+	text-shadow: 1px 1px var(--color-link-shadow);
 	cursor: default;
 }
 
@@ -188,9 +188,12 @@ a:focus {
 
 .intro__enter {
 	position: relative;
+	left: 10px;
 	grid-row: 3;
 	grid-column: 1;
 	color: var(--color-enter);
+	text-shadow: 1px 1px var(--color-link-shadow);
+	transform: translateX(-40px);
 	font-size: 1.4rem;
 	will-change: transform;
 }
@@ -199,11 +202,11 @@ a:focus {
 	content: '';
 	position: absolute;
 	width: 100%;
-	height: 1px;
-	background: currentColor;
-	transform: scale3d(0,1,1);
+	height: 4px;
+	background: var(--color-intro-title);
+	transform: scale3d(0,1,1) translateX(-40px);
 	opacity: 0;
-	top: calc(100% + 0.15rem);
+	top: calc(100% + -4px);
 	left: 0;
 	transform-origin: 0% 50%;
 	transition: opacity 0.3s, transform 0.3s;
