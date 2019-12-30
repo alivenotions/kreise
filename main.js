@@ -113,10 +113,7 @@
       )
 
       .set(
-        [
-          thirdPageContent.selectElems,
-          thirdPageContent.reelTexts,
-        ],
+        [thirdPageContent.selectElems, thirdPageContent.reelTexts],
         { opacity: 0 },
         thirdPageTime
       )
