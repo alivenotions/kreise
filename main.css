@@ -61,26 +61,24 @@ main {
 }
 
 .loading::after {
-	content: '';
+	content: 'simple smiles are a myth';
 	position: fixed;
 	z-index: 100000;
 	top: 50%;
 	left: 50%;
-	width: 30px;
+	width: 300px;
 	height: 30px;
 	margin: -15px 0 0 -15px;
 	pointer-events: none;
-	opacity: 0.4;
+	opacity: 0.1;
 	background: var(--color-intro-title);
 	transform-origin: 50% 100%;
-	transform: rotate3d(0,0,1,45deg);
 	animation: loaderAnim 0.7s linear infinite alternate forwards;
 }
 
 @keyframes loaderAnim {
 	to {
 		opacity: 1;
-		transform: rotate3d(0,0,1,45deg) scale3d(1,0,1) rotate3d(0,0,1,-180deg);
 	}
 }
 
