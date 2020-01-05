@@ -286,11 +286,17 @@ a:focus {
 	line-height: 1;
 	transform-origin: 50% 1.357rem;
 	color: var(--color-reel-number);
+  mix-blend-mode: overlay;
+}
+
+@-moz-document url-prefix() {
+  .reel__text {
+    mix-blend-mode: color-burn;
+  }
 }
 
 .reel__text:nth-of-type(2n + 1) {
   margin: 0 0 1.5rem 175px;
-  mix-blend-mode: overlay;
 }
 
 .reel__img + .reel__text {
