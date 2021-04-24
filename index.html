@@ -17,27 +17,30 @@
       height: 100vh;
       margin: 0;
       padding: 0;
+      background-color: #f5f4ef;
     }
 
-    img {
+    #front {
       width: 400px;
+      mix-blend-mode: lighten;
     }
 
     #bg {
       position: absolute;
       top: 50%;
       left: 50%;
-      transform: translate(-50%, -50%);
-      filter: blur(15px);
-      width: 422px;
+      transform: translate(-52%, -50%);
+      filter: blur(10px);
+      width: 375px;
       z-index: -1;
     }
   </style>
 </head>
 
 <body>
-  <img src="./img/empty.jpg" width="400px">
-  <img id="bg" src="./img/empty.jpg" width="400px">
+
+  <img id="front" src="./img/empty.jpg">
+  <img id="bg" src="./img/empty.jpg">
   <script>
 
   </script>
